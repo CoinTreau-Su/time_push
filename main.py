@@ -7,6 +7,7 @@ import sys
 import os
 import http.client, urllib
 import json
+
 from zhdate import ZhDate
 global false, null, true
 false = null = true = ''
@@ -153,10 +154,17 @@ def tip():
             data = json.loads(data)
             tips = data["result"]["tips"]
             alarmlist = data["result"]["alarmlist"]
-            if len(alarmlist) == 0 :
+
+            if len(alarmlist) != 0:
                 alarm = '嘻嘻~气象台没有报警呢~'
             else :
-                alarm = data["result"]["alarmlist"]["content"]
+                province = alarmlist['province']
+                city     = alarmlist['city']
+                level    = alarmlist['level']
+                type     = alarmlist['type']
+                time     = alarmlist['time']
+                content  = alarmlist["content"]
+                alarm = content
 
             return alarm,tips
         except:
