@@ -155,14 +155,14 @@ def tip():
             tips = data["result"]["tips"]
             alarmlist = data["result"]["alarmlist"]
 
-            if len(alarmlist) != 0:
+            if len(alarmlist) == 0:
                 alarm = '嘻嘻~气象台没有报警呢~'
             else :
-                province = alarmlist['province']
-                city     = alarmlist['city']
-                level    = alarmlist['level']
-                type     = alarmlist['type']
-                time     = alarmlist['time']
+                # province = alarmlist['province']
+                # city     = alarmlist['city']
+                # level    = alarmlist['level']
+                # type     = alarmlist['type']
+                # time     = alarmlist['time']
                 content  = alarmlist["content"]
                 alarm = content
 
